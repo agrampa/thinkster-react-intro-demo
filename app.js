@@ -1,10 +1,14 @@
 let Hello = React.createClass({
   render: function() {
     return (
+
+      let targetOfGreeting = 'World!';
+      let exampleClassNameForStyling = 'nameOfTheClass';
       // createElement is a helper method
       // React.createElement('div', null, 'Hello World!')
       // instead of createElement, do this instead:
-      <div>Hello World!</div>  // use JSX transformer along with Gulp and Grunt, otherwise in-browser transformer will be too slow on a large-scale program
+      // <div>Hello World!</div>  // use JSX transformer along with Gulp and Grunt, otherwise in-browser transformer will be too slow on a large-scale program
+      <div className="exampleClassNameForStyling">Hello, { targetOfGreeting }!
     )
   }
 })
