@@ -12,3 +12,6 @@ let Hello = React.createClass({
 //reactDom is a package, allows interaction with browser DOM
 // two args: component to render, and DOM node to attach to
 ReactDOM.render(<Hello />, document.getElementById('container'));
+// in source code in console, will have a reactID
+
+// create reusable components that can be used throughout the application
