@@ -19,3 +19,30 @@ ReactDOM.render(<Hello />, document.getElementById('container'));
 // in source code in console, will have a reactID
 
 // create reusable components that can be used throughout the application
+
+
+// LOOPS
+
+let Hello = React.createClass({
+  render: function() {
+    let names = ['Allie', 'Dave', 'Gary', 'Charlotte'];
+
+    // return (
+    //   <ul>
+    //     {names.map(function(name, index) {
+    //       return <li key={ index }>{ name }</li>;
+    //     })};
+    //   </ul>
+    // )
+
+    let namesList = names.map(function(name, index) {
+      return <li key={ index }>{ name }</li>;
+    });
+
+    return (
+      <ul>
+        { namesList }
+      </ul>
+    )
+  }
+})
