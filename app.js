@@ -46,3 +46,43 @@ let Hello = React.createClass({
     )
   }
 })
+
+
+let Water = React.createClass({
+  getInitialState: function() {
+    return {
+      currentTemp: 50;
+    };
+  },
+
+  setTemperature: function(e) {
+    this.setState({ currentTemp: e.target.value });
+  },
+
+  render: function() {
+    // empty variable to hold 'solid', 'liquid', or 'gas'
+    let stateOfMatter;
+
+    // SOLID
+    if(this.state.currentTemp <= 32) {
+      stateOfMatter = 'Solid';
+    }
+
+    // GAS
+    else if(this.state.currentTemp >= 212) {
+      stateOfMatter = 'Gas';
+    }
+
+    // LIQUID
+    else {
+      stateOfMatter = 'Liquid';
+    };
+
+    return (
+      <div>
+        <input type="text" onChange={ this.setTemperature() } value={ this.state.currentTemp }
+        <p>At { this.state.currentTemp } degrees Farenheit, water is considered to be a "{ stateOfMatter }" state of matter.</p>
+      </div>
+    )
+  };
+})
