@@ -47,6 +47,9 @@ let Hello = React.createClass({
   }
 })
 
+////////////////////
+// STATE TUTORIAL //
+////////////////////
 
 let Water = React.createClass({
   getInitialState: function() {
@@ -86,3 +89,58 @@ let Water = React.createClass({
     )
   };
 })
+
+ReactDOM.render(<Water />, document.getElementById('container'));
+
+////////////////////
+// PROPS TUTORIAL //
+////////////////////
+
+let Liquid = React.createClass({
+  getInitialState: function() {
+    return {
+      currentTemp: 50;
+    };
+  },
+
+  setTemperature: function(e) {
+    this.setState({ currentTemp: e.target.value });
+  },
+
+  render: function() {
+    // empty variable to hold 'solid', 'liquid', or 'gas'
+    let stateOfMatter;
+
+    // SOLID
+    if(this.state.currentTemp <= this.props.config.freezing) {
+      stateOfMatter = 'Solid';
+    }
+
+    // GAS
+    else if(this.state.currentTemp >= this.props.config.boiling) {
+      stateOfMatter = 'Gas';
+    }
+
+    // LIQUID
+    else {
+      stateOfMatter = 'Liquid';
+    };
+
+    return (
+      <div>
+        <input type="text" onChange={ this.setTemperature() } value={ this.state.currentTemp }
+        <p>At { this.state.currentTemp } degrees Farenheit, { this.props.config.name } is considered to be a "{ stateOfMatter }" state of matter.</p>
+      </div>
+    )
+  };
+})
+
+
+
+let ethanol = {
+  name: 'Ethanol',
+  freezing: -173.2,
+  boiling: 173.1
+};
+
+ReactDOM.render(<Liquid config={ ethanol } />, document.getElementById('container'));
