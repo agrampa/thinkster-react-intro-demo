@@ -135,6 +135,15 @@ let Liquid = React.createClass({
   };
 })
 
+let water = {
+  name: 'Water',
+  freezing: 32,
+  boiling: 212
+};
+
+let waterEl = document.createElement('div');
+document.getElementById('container').appendChild(waterEl);
+ReactDOM.render(<Liquid config={ water } />, waterEl);
 
 
 let ethanol = {
@@ -143,4 +152,6 @@ let ethanol = {
   boiling: 173.1
 };
 
-ReactDOM.render(<Liquid config={ ethanol } />, document.getElementById('container'));
+let ethanolEl = document.createElement('div');
+document.getElementById('container').appendChild(ethanolEl);
+ReactDOM.render(<Liquid config={ ethanol } />, ethanolEl);
